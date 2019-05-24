@@ -10,14 +10,22 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:extension.helloWorld"
+		"onCommand:scroll-to-cursor.scroll"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "extension.helloWorld",
-				"title": "Hello World"
+				"command": "scroll-to-cursor.scroll",
+				"title": "Scroll to Cursor"
+			}
+		],
+		"keybindings": [
+			{
+				"command": "scroll-to-cursor.scroll",
+				"key": "ctrl+l",
+				"mac": "ctrl+l",
+				"when": "editorTextFocus"
 			}
 		]
 	},
