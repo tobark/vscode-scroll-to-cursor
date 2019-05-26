@@ -12,10 +12,12 @@ export function activate(context: vscode.ExtensionContext) {
 
 async function scroll() {
 	const activeTextEditor = vscode.window.activeTextEditor;
+	const offset = vscode.workspace.getConfiguration('scrollToCursor').get<number>('offset')!;
+
 	if (activeTextEditor) {
 		const currentLineNumber = activeTextEditor.selection.start.line;
 		await vscode.commands.executeCommand('revealLine', {
-			lineNumber: currentLineNumber,
+			lineNumber: currentLineNumber - offset,
 			at: 'top',
 		});
 		console.log('Scrolled');
